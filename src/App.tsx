@@ -6,7 +6,7 @@ import Popular from "./pages/Popular";
 import TopRated from "./pages/TopRated";
 
 function App() {
-  const {popular} = useAppSelector(s => s.popularSlice)
+  const { popular } = useAppSelector((s) => s.popularSlice);
   return (
     <div className="container">
       <div className="App">
@@ -34,7 +34,7 @@ function App() {
             <div className="border">
               <NavLink
                 className="left  text-[gray]  bg-[white] h-[40px] py-[3px] px-[17px] rounded-[30px] "
-                to={"/popular"}
+                to={"/"}
               >
                 Popular
               </NavLink>
@@ -46,11 +46,10 @@ function App() {
               </NavLink>
             </div>
           </div>
-          <div className="mt-[20px] ml-[30px]">oioioioio</div>
           <div className="mt-[20px] ml-[30px]">
             <Routes>
-              <Route path="/popular" element={<Popular/>}/> 
-              <Route path="/topRated" element={<TopRated/>}/> 
+              <Route path="/" element={<Popular />} />
+              <Route path="/topRated" element={<TopRated />} />
             </Routes>
           </div>
         </div>
