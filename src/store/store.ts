@@ -1,7 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import popularSlice from "./Reducers/popularSlice";
-export const rootReducer = combineReducers({
-    popularSlice
+import topRatedSlice  from "./Reducers/TopRatedSlice";
+
+const rootReducer = combineReducers({
+    popularSlice,
+    topRatedSlice
 })
 
 
