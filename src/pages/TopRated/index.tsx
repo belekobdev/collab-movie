@@ -24,7 +24,7 @@ const TopRated = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <Slider {...settings}>
         {topRated.map((el) => (
           <div>
