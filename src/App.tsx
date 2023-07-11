@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./hooks/useAppSelector";
+import Popular from "./pages/Popular";
+import TopRated from "./pages/TopRated";
 
 function App() {
   const {popular} = useAppSelector(s => s.popularSlice)
@@ -45,6 +47,12 @@ function App() {
             </div>
           </div>
           <div className="mt-[20px] ml-[30px]">oioioioio</div>
+          <div className="mt-[20px] ml-[30px]">
+            <Routes>
+              <Route path="/popular" element={<Popular/>}/> 
+              <Route path="/topRated" element={<TopRated/>}/> 
+            </Routes>
+          </div>
         </div>
       </div>
     </div>
