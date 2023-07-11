@@ -46,7 +46,7 @@ function App() {
               </NavLink>
             </div>
           </div>
-
+          <div className="mt-[20px] ml-[30px]">oioioioio</div>
           <div className="mt-[20px] ml-[30px]">
             <Routes>
               <Route path="/popular" element={<Popular/>}/> 
