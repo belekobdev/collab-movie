@@ -1,7 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { IMovies } from "../../types/IMovie"
 
  interface IPopularState {
-    popular: any[]
+    popular: IMovies[]
 }
 
 const initialState: IPopularState = {
@@ -13,7 +14,7 @@ export const popularSlice = createSlice({
     name: "POPULAR",
     initialState,
     reducers: {
-        getPopular(state, action: PayloadAction<any>) {
+        getPopular(state, action: PayloadAction<IMovies[]>) {
             state.popular = action.payload
         }
     }

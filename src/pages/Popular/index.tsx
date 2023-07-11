@@ -3,6 +3,8 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { fetchingPopular } from "../../store/Reducers/creatorMovie";
 import { API_KEY } from "../../API/API_KEY";
+import MovieCard from "../MovieCard";
+import Slider from "react-slick";
 
 const Popular = () => {
   const dispatch = useAppDispatch();
@@ -11,14 +13,27 @@ const Popular = () => {
     dispatch(fetchingPopular(API_KEY, "en-US", 1));
   }, []);
   console.log(popular);
-  
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow:5 ,
+    slidesToScroll: 2,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear"
+  };
   return (
+
     <div> 
+       <Slider {...settings}>
+
 {
     popular.map(el => (
-        <h1>{el.title}</h1>
+        <MovieCard movie={el}/>
     ))
 }
+</Slider>
 </div>
   );
 };
