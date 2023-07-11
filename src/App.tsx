@@ -1,9 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "./hooks/useAppSelector";
 
 function App() {
+  const {popular} = useAppSelector(s => s.popularSlice)
   return (
     <div className="container">
       <div className="App">
