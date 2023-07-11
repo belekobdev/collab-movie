@@ -11,11 +11,3 @@ export const fitchingPopular = (key: string, language: string, page: number ) =>
             dispatch(err.message)
     }
 }
-
-
-
-
-
-
-
-
