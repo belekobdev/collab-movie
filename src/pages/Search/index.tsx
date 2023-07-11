@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import { fetchingSearch } from '../../store/Reducers/creatorMovie';
 import { API_KEY } from '../../API/API_KEY';
-import { fetchingTopRated } from '../../store/Reducers/creatorMovie';
+import { useParams } from 'react-router-dom';
 import MovieCard from '../MovieCard';
 import Slider from 'react-slick';
 
-const TopRated = () => {
+const Search = () => {
     const dispatch = useAppDispatch();
-    const {topRated} = useAppSelector(s => s.TopRatedSlice);
+    const {search} = useAppSelector(s => s.searchSlice);
+    const {MovieName} = useParams();
     useEffect(() => {
-        dispatch(fetchingTopRated(API_KEY, "en-US", 1));
-    }, [])
+        dispatch(fetchingSearch(API_KEY, MovieName))
+    }, [MovieName])
     const settings = {
         dots: true,
         infinite: true,
@@ -22,21 +24,17 @@ const TopRated = () => {
         autoplaySpeed: 2000,
         cssEase: "linear"
       };
-
     return (
         <div>
-            
             <Slider {...settings}>
             {
-                topRated.map(el => (
-                    <div>
-                        <MovieCard movie={el}/>
-                    </div>
+                search.map(el => (
+                    <MovieCard movie={el}/>
                 ))
             }
-        </Slider>
+            </Slider>
         </div>
     );
 };
 
-export default TopRated;
+export default Search;

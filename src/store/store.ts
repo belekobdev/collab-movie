@@ -1,9 +1,11 @@
+import  searchSlice  from './Reducers/searchSlice';
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import popularSlice from "./Reducers/popularSlice";
 import TopRatedSlice from "./Reducers/TopRatedSlice";
 export const rootReducer = combineReducers({
     popularSlice,
-    TopRatedSlice
+    TopRatedSlice,
+    searchSlice
 })
 
 

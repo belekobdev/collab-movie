@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import Popular from "./pages/Popular";
+import TopRated from "./pages/TopRated";
 import { useAppSelector } from "./hooks/useAppSelector";
+import { settingSearch } from "./store/Reducers/searchSlice";
+import { useAppDispatch } from "./hooks/useAppDispatch";
+import Search from "./pages/Search";
 
 function App() {
-  const {popular} = useAppSelector(s => s.popularSlice)
+  const dispatch = useAppDispatch();
+  const {searching} = useAppSelector(s => s.searchSlice);
+  const nav = useNavigate();
   return (
     <div className="container">
       <div className="App">
@@ -16,12 +23,18 @@ function App() {
             Миллионы фильмов, сериалов и людей. Исследуйте сейчас.
           </h2>
           <div className="flex items-center mt-[40px]">
-            <input
+            <input onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                nav(`/search/search_movie/${searching}`)
+              }
+            }}
+             onChange={(e) => dispatch(settingSearch(e.target.value))}
               className="w-[1300px] px-[20px] text-[16px] outline-none h-[45px] rounded-[40px]"
               placeholder="Найти фильм, сериал, персону....."
               type="text"
             />
-            <button className="btn   w-[140px] rounded-[40px] relative right-[40px] h-[45px]">
+            <button onClick={() => nav(`/search/search_movie/${searching}`)}
+             className="btn   w-[140px] rounded-[40px] relative right-[40px] h-[45px]">
               Search
             </button>
           </div>
@@ -44,7 +57,13 @@ function App() {
               </NavLink>
             </div>
           </div>
-          <div className="mt-[20px] ml-[30px]">movies</div>
+          <div className="mt-[20px] ml-[30px]">
+            <Routes>
+              <Route path="/popular" element={<Popular/>}/> 
+              <Route path="/topRated" element={<TopRated/>}/> 
+              <Route path="/search/search_movie/:MovieName" element={<Search/>}/> 
+            </Routes>
+          </div>
         </div>
       </div>
     </div>
