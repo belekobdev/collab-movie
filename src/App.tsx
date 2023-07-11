@@ -2,13 +2,14 @@ import React from "react";
 import "./App.css";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./hooks/useAppSelector";
+import Popular from "./pages/Popular";
+import TopRated from "./pages/TopRated";
 
 function App() {
   const {popular} = useAppSelector(s => s.popularSlice)
   return (
     <div className="container">
       <div className="App">
-        <h1>ertgfh</h1>
         <div className="welcome px-[40px] flex jutify-center py-[100px] flex-col">
           <h1 className="text-white text-[40px] font-[900]">
             Добро пожаловать.
@@ -26,7 +27,7 @@ function App() {
               Search
             </button>
           </div>
-        R</div>
+        </div>
         <div>
           <div className="flex items-center mt-[30px]">
             <h1 className=" ml-[30px] text-[26px]">В тренде</h1>
@@ -46,7 +47,12 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-[20px] ml-[30px]">movies</div>
+          <div className="mt-[20px] ml-[30px]">
+            <Routes>
+              <Route path="/popular" element={<Popular/>}/> 
+              <Route path="/topRated" element={<TopRated/>}/> 
+            </Routes>
+          </div>
         </div>
       </div>
     </div>
