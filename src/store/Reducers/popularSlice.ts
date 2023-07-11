@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
  interface IPopularState {
-    popular: any
+    popular: any[]
 }
 
 const initialState: IPopularState = {
