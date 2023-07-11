@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import popularSlice from "./Reducers/popularSlice";
+import TopRatedSlice from "./Reducers/TopRatedSlice";
 export const rootReducer = combineReducers({
-    popularSlice
+    popularSlice,
+    TopRatedSlice
 })
 
 
@@ -10,10 +12,6 @@ export const setupStore = () => {
         reducer: rootReducer
     })
 }
-
-
-
-
 
 
 export type rootState = ReturnType<typeof rootReducer>

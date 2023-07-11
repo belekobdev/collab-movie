@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./hooks/useAppSelector";
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="container">
       <div className="App">
+        <h1>ertgfh</h1>
         <div className="welcome px-[40px] flex jutify-center py-[100px] flex-col">
           <h1 className="text-white text-[40px] font-[900]">
             Добро пожаловать.
@@ -25,7 +26,7 @@ function App() {
               Search
             </button>
           </div>
-        </div>
+        R</div>
         <div>
           <div className="flex items-center mt-[30px]">
             <h1 className=" ml-[30px] text-[26px]">В тренде</h1>
