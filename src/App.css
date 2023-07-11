@@ -1,0 +1,28 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.App {
+  background: #4e73ec;
+  height: 380px;
+}
+.btn {
+  background: #17a2b8;
+}
+.left {
+  transition: 0.4s ease-in-out;
+}
+.border {
+  margin-left: 20px;
+  z-index: 99;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+.right {
+  transition: 0.4s ease-in-out;
+}
+.active {
+  color: #1ed5a9;
+  background: #212529;
+}
