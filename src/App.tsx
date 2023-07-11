@@ -44,7 +44,7 @@ function App() {
               </NavLink>
             </div>
           </div>
-          <div className="mt-[20px] ml-[30px]">movies</div>
+          <div className="mt-[20px] ml-[30px]">oioioioio</div>
         </div>
       </div>
     </div>
