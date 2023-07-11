@@ -12,7 +12,6 @@ function App() {
   const dispatch = useAppDispatch();
   const {searching} = useAppSelector(s => s.searchSlice);
   const nav = useNavigate();
-  const { popular } = useAppSelector((s) => s.popularSlice);
   return (
     <div className="container">
       <div className="App">
@@ -60,7 +59,7 @@ function App() {
           </div>
           <div className="mt-[20px] ml-[30px]">
             <Routes>
-              <Route path="/popular" element={<Popular/>}/> 
+              <Route path="/" element={<Popular/>}/> 
               <Route path="/topRated" element={<TopRated/>}/> 
               <Route path="/search/search_movie/:MovieName" element={<Search/>}/> 
             </Routes>

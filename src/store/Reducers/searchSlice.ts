@@ -1,7 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { IMovies } from "../../types/IMovie"
 
 interface ISearchState {
-    search: any[],
+    search: IMovies[],
     searching: string
 }
 const initialState: ISearchState = {
@@ -12,7 +13,7 @@ export const searchSlice = createSlice({
     name: "search",
     initialState,
     reducers: {
-        getSearch(state, action: PayloadAction<any>){
+        getSearch(state, action: PayloadAction<IMovies[]>){
             state.search = action.payload
         },
         settingSearch(state, action: PayloadAction<string>){
