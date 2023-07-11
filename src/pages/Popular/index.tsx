@@ -8,7 +8,7 @@ import Slider from "react-slick";
 
 const Popular = () => {
   const dispatch = useAppDispatch();
-  const { popular } = useAppSelector(s => s.popularSlice);
+  const { popular } = useAppSelector((s) => s.popularSlice);
   useEffect(() => {
     dispatch(fetchingPopular(API_KEY, "en-US", 1));
   }, []);
@@ -16,25 +16,21 @@ const Popular = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow:5 ,
+    slidesToShow: 5,
     slidesToScroll: 2,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
-    cssEase: "linear"
+    cssEase: "linear",
   };
   return (
-
-    <div> 
-       <Slider {...settings}>
-
-{
-    popular.map(el => (
-        <MovieCard movie={el}/>
-    ))
-}
-</Slider>
-</div>
+    <div>
+      <Slider {...settings}>
+        {popular.map((el) => (
+          <MovieCard movie={el} />
+        ))}
+      </Slider>
+    </div>
   );
 };
 
