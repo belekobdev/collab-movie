@@ -6,7 +6,7 @@ interface ITopRated {
 const initialState: ITopRated = {
     topRated: []
 }
-export const topRatedSlice = createSlice({
+export const TopRatedSlice = createSlice({
     name: "topRated",
     initialState,
     reducers: {
@@ -15,5 +15,5 @@ export const topRatedSlice = createSlice({
         }
     }
 })
-export default topRatedSlice.reducer
-export const {getTopRated} = topRatedSlice.actions
+export default TopRatedSlice.reducer
+export const {getTopRated} = TopRatedSlice.actions
