@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="container">
       <div className="App">
-        <h1>ertgfh</h1>
         <div className="welcome px-[40px] flex jutify-center py-[100px] flex-col">
           <h1 className="text-white text-[40px] font-[900]">
             Добро пожаловать.
@@ -26,7 +25,7 @@ function App() {
               Search
             </button>
           </div>
-        R</div>
+        </div>
         <div>
           <div className="flex items-center mt-[30px]">
             <h1 className=" ml-[30px] text-[26px]">В тренде</h1>
@@ -45,7 +44,6 @@ function App() {
               </NavLink>
             </div>
           </div>
-
           <div className="mt-[20px] ml-[30px]">movies</div>
         </div>
       </div>
