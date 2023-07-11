@@ -12,6 +12,7 @@ function App() {
   const dispatch = useAppDispatch();
   const {searching} = useAppSelector(s => s.searchSlice);
   const nav = useNavigate();
+  const { popular } = useAppSelector((s) => s.popularSlice);
   return (
     <div className="container">
       <div className="App">
@@ -45,7 +46,7 @@ function App() {
             <div className="border">
               <NavLink
                 className="left  text-[gray]  bg-[white] h-[40px] py-[3px] px-[17px] rounded-[30px] "
-                to={"/popular"}
+                to={"/"}
               >
                 Popular
               </NavLink>
