@@ -9,9 +9,10 @@ import Slider from "react-slick";
 const TopRated = () => {
   const dispatch = useAppDispatch();
   const { topRated } = useAppSelector((s) => s.TopRatedSlice);
+  const {language} = useAppSelector(s => s.searchSlice)
   useEffect(() => {
-    dispatch(fetchingTopRated(API_KEY, "en-US", 1));
-  }, []);
+    dispatch(fetchingTopRated(API_KEY, language, 1));
+  }, [language]);
   const settings = {
     dots: true,
     infinite: true,

@@ -9,9 +9,10 @@ import Slider from "react-slick";
 const Popular = () => {
   const dispatch = useAppDispatch();
   const { popular } = useAppSelector((s) => s.popularSlice);
+  const {language} = useAppSelector(s => s.searchSlice)
   useEffect(() => {
-    dispatch(fetchingPopular(API_KEY, "en-US", 1));
-  }, []);
+    dispatch(fetchingPopular(API_KEY, language, 1));
+  }, [language]);
   console.log(popular);
   const settings = {
     dots: true,
