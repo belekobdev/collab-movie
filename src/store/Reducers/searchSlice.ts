@@ -14,7 +14,7 @@ const initialState: ISearchState = {
     search: [],
     searching: "",
 
-    dark: false
+    dark: false,
 
     language: "en-US"
 }
@@ -37,5 +37,4 @@ export const searchSlice = createSlice({
     }
 })
 export default searchSlice.reducer
-export const {getSearch, settingSearch, darkMode} = searchSlice.actions
-export const {getSearch, settingSearch, settingLanguage} = searchSlice.actions
+export const {getSearch, settingSearch, settingLanguage, darkMode} = searchSlice.actions

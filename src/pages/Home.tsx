@@ -3,22 +3,21 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
-import { darkMode, settingSearch } from "../store/Reducers/searchSlice";
-
+import { darkMode, settingLanguage, settingSearch } from "../store/Reducers/searchSlice";
+import us from "../images/us.png"
+import ru from "../images/rus.png"
 const Home = () => {
- 
-     const dispatch = useAppDispatch();
-  const { searching } = useAppSelector((s) => s.searchSlice);
+  const dispatch = useAppDispatch();
   const { popular } = useAppSelector((s) => s.popularSlice);
   const { dark } = useAppSelector((s) => s.searchSlice);
   const nav = useNavigate();
     const state = Math.floor(Math.random() * 20)
-    const dispatch = useAppDispatch();
   const { searching, language} = useAppSelector(s => s.searchSlice);
-  const nav = useNavigate();
     return (
         <div>
-             <div className="welcome px-[40px] flex jutify-center py-[100px] flex-col">
+             <div style={{
+                        background: `url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/${popular.map(el => el.poster_path)[state]}") no-repeat`
+                        }} className="welcome px-[40px] flex jutify-center py-[100px] flex-col">
                 <div className='mb-[20px] flex items-center'>
                    <div className='flex'>
                   {
@@ -29,8 +28,18 @@ const Home = () => {
                         <option value={"ru-RU"}>ru</option>
                     </select>
                    </div>
-                    <div className='bg-white flex items-center justify-left ml-[30px] w-[80px] h-[28px] rounded-[20px]'>
-                        <div className='bg-[black] w-[24px] ml-[5px] rounded-[50%] h-[18px]'></div>
+                    <div  style={{
+                      background: dark ? "black" : ""
+                    }}
+                    className='bg-white flex items-center justify-left ml-[30px] w-[80px] h-[28px] rounded-[20px]'>
+                        <div onClick={() => {
+                          dispatch(darkMode(!dark))
+                        }}
+                        style={{
+                          transition: ".8s",
+                          transform: dark ? "translateX(44px)" : "",
+                          background: dark ? "white" : "black"
+                        }} className='bg-[black] w-[24px] ml-[5px] rounded-[50%] h-[18px]'></div>
                     </div>
                 </div>
           <h1 className="text-white text-[40px] font-[900]">
@@ -41,7 +50,6 @@ const Home = () => {
           </h2>
           <div className="flex items-center mt-[40px]">
             <input onKeyDown={(e) => {
-
               if (e.key === "Enter") {
                 nav(`/search/search_movie/${searching}`);
               }
