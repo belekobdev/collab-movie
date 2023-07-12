@@ -2,8 +2,10 @@
   width: 60%;
   margin: 0 auto;
 }
-
 .App {
+  transition: .8s ;
+}
+.welcome {
   background: #4e73ec;
   height: 380px;
 }

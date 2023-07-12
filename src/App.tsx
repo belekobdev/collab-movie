@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import "./App.css";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Popular from "./pages/Popular";
 import TopRated from "./pages/TopRated";
-import { useAppSelector } from "./hooks/useAppSelector";
-import { settingSearch } from "./store/Reducers/searchSlice";
-import { useAppDispatch } from "./hooks/useAppDispatch";
 import Search from "./pages/Search";
 import Home from "./pages/Home";
+import { useAppSelector } from "./hooks/useAppSelector";
 
 function App() {
- 
+  const { dark } = useAppSelector((s) => s.searchSlice);
   return (
-    <div className="container">
-      <div className="App">
-        <Home/>
+    <div className={dark ? "App bg-[#181818] h-[100vh]" : "App bg-[white] h-[100vh]"}>
+      <div className="container">
+        <Home />
         <div className="mt-[20px] ml-[30px]">
           <Routes>
             <Route path="/" element={<Popular />} />

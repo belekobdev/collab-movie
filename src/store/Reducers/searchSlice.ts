@@ -3,11 +3,13 @@ import { IMovies } from "../../types/IMovie"
 
 interface ISearchState {
     search: IMovies[],
-    searching: string
+    searching: string,
+    dark: boolean
 }
 const initialState: ISearchState = {
     search: [],
-    searching: ""
+    searching: "",
+    dark: false
 }
 export const searchSlice = createSlice({
     name: "search",
@@ -18,8 +20,11 @@ export const searchSlice = createSlice({
         },
         settingSearch(state, action: PayloadAction<string>){
             state.searching = action.payload
+        },
+        darkMode(state, action: PayloadAction<boolean>) {
+            state.dark = action.payload
         }
     }
 })
 export default searchSlice.reducer
-export const {getSearch, settingSearch} = searchSlice.actions
+export const {getSearch, settingSearch, darkMode} = searchSlice.actions
